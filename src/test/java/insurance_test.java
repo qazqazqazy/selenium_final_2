@@ -38,11 +38,11 @@ public class insurance_test {
     @Test
     public void testInsurance() {
 
-        driver.findElement(By.xpath("//a[contains(text(),'Меню')]")).click();
+        driver.findElement(By.xpath("//a[contains(text(),'Меню')][@data-toggle='dropdown']")).click();
         driver.findElement(By.xpath("//div[contains(@class,'rgs-main-menu-category')]//*[contains(text(),'ДМС')]")).click();
         Wait<WebDriver> wait = new WebDriverWait(driver, 5,1000);//ожидаем появления кнопки
 
-        WebElement sndBtn = driver.findElement(By.xpath(("//a[contains(// text(),'Отправить заявку')]")));
+        WebElement sndBtn = driver.findElement(By.xpath(("//a[contains(text(),'Отправить заявку')]")));
                 //ждем, пока появится этот элемент (сам элемент задан строчкой выше)
 
                 wait.until(ExpectedConditions.visibilityOf(sndBtn)).click();
@@ -55,20 +55,21 @@ public class insurance_test {
        assertEquals("Заявка на добровольное медицинское страхование",title.getText());
 
        fillField(By.name("LastName"),"Иванов"); //вызываем метод заполнения поля для фамилии
-        fillField(By.name("FirstName"),"Иванов");
-        fillField(By.name("MiddleName"),"Иванов");
+        fillField(By.name("FirstName"),"Иван");
+        fillField(By.name("MiddleName"),"Иванович");
 
         //из выпадающего списка выбираем видимое значение "Москва"
         new Select(driver.findElement(By.name("Region"))).selectByVisibleText("Москва");
 
         fillField(By.name("Comment"),"AUTOTEST");
-        fillField(By.name("Comment"),"1111wrongsymbols");
+        fillField(By.name("Email"),"1111wrongsymbols");
 
-        driver.findElement(By.xpath("//input[@class='checkbox']")); //ставим чекбокс
+        driver.findElement(By.xpath("//input[@class='checkbox']")).click(); //ставим чекбокс
          driver.findElement(By.id("button-m")).click();
 
         //Проверить, что текст ошибки соответствует нужному
-        assertEquals("Введите адрес электронной почты", driver.findElement(By.xpath("//*[text()='Эл. почта']/..//span[@class='validation-error-text']")));
+        assertEquals("Введите адрес электронной почты",
+                driver.findElement(By.xpath("//label[contains(@class,'control-label')][contains(text(),'Эл. почта')]/..//span")).getAttribute("innerText"));
 
         //Проверка других полей
         assertEquals("Иванов", driver.findElement(By.name("LastName")).getAttribute("value"));
