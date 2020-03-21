@@ -2,6 +2,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -47,13 +48,23 @@ public class selenium_task_1 {
         assertEquals("до 120 000 евро",search_text.getText());
 
         driver.findElement(By.xpath(("//a[contains(text(),'Оформить онлайн')]"))).click();
+        //Далее не срабатывает никакое ожидание и никакой xpath
+        driver.findElement(By.xpath("//p[contains(text(),'Необходимый минимум для оплаты медицинской помощи за границей')]")).click();
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, 5,1000);//ожидаем появления элемента
-        WebElement sndtext = driver.findElement(By.xpath("//a[contains(text(),'Выбор полиса')]"));
+ /*     Wait<WebDriver> wait = new WebDriverWait(driver, 5,1000);//ожидаем появления элемента
+         WebElement sndtext = driver.findElement(By.xpath("//div[contains(@class,'circle')]//..//a[contains(text(),'Выбор полиса')]"));
         //ждем, пока появится этот элемент (сам элемент задан строчкой выше)
         wait.until(ExpectedConditions.visibilityOf(sndtext));
 
-        driver.findElement(By.xpath("Необходимый минимум для оплаты медицинской помощи за границей")).click();
+                driver.findElement(By.xpath("//div[contains(@class,'online-card-program selected')]")).click();
+
+*/
+ /*     WebElement title = driver.findElement(By.xpath("//div[@class='product-image']"));
+        wait.until(ExpectedConditions.visibilityOf(title));
+
+        driver.findElement(By.xpath("//button[@class='btn btn-primary btn-large']")).click();
+        driver.findElement(By.xpath("//p[contains(text(),'Необходимый минимум для оплаты медицинской помощи за границей')]")).click();
+*/
 
     /*
         fillField(By.name("LastName"),"Иванов"); //вызываем метод заполнения поля для фамилии
