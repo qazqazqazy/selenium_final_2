@@ -56,15 +56,15 @@ public class selenium_task_1 {
         driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')][contains(text(),'Оформить')]")).click();
         driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')]")).click();
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, 5,1000);//ожидаем появления кнопки
+        Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления кнопки
         WebElement title = driver.findElement(By.xpath("//div[contains(@class,'sub-legend')][contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]"));
         wait.until(ExpectedConditions.visibilityOf(title));
 
-        fillField(By.id("surname_vzr_ins_0"),"Иванов");
-        fillField(By.id("name_vzr_ins_0"),"Руслан");
+        fillField(By.id("surname_vzr_ins_0"),"Ivanov");
+        fillField(By.id("name_vzr_ins_0"),"Ruslan");
         fillField(By.id("birthDate_vzr_ins_0"),"23.03.2010");
 
-        fillField(By.id("person_lastName"),"Петров");
+        fillField(By.id("person_lastName"),"Васильев");
         fillField(By.id("person_firstName"),"Михаил");
         fillField(By.id("person_middleName"),"Александрович");
 
@@ -73,21 +73,21 @@ public class selenium_task_1 {
         fillField(By.id("passportSeries"),"3411");
         fillField(By.id("passportNumber"),"341111");
         fillField(By.id("documentDate"),"03.10.2014");
-        fillField(By.id("documentIssue"),"ТП №1");
+        fillField(By.id("documentIssue"),"Т4444444444444");
 
        //Проверка полей на корректность  заполнения
-        assertEquals("Иванов", driver.findElement(By.xpath("//*[contains(@class,'form-control__container form-control_has-value form-control__focused')]//input[contains(@class,'form-control ng-touched ng-dirty ng-valid')]")).getAttribute("value"));
-        assertEquals("Руслан", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
+        assertEquals("Ivanov", driver.findElement(By.id("surname_vzr_ins_0")).getAttribute("value"));
+        assertEquals("Ruslan", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
         assertEquals("23.03.2010", driver.findElement(By.id("birthDate_vzr_ins_0")).getAttribute("value"));
 
-        assertEquals("Петров", driver.findElement(By.id("person_lastName")).getAttribute("value"));
+        assertEquals("Васильев", driver.findElement(By.id("person_lastName")).getAttribute("value"));
         assertEquals("Михаил", driver.findElement(By.id("person_firstName")).getAttribute("value"));
         assertEquals("Александрович", driver.findElement(By.id("person_middleName")).getAttribute("value"));
 
         assertEquals("3411", driver.findElement(By.id("person_lastName")).getAttribute("value"));
         assertEquals("341111", driver.findElement(By.id("passportNumber")).getAttribute("value"));
         assertEquals("03.10.2014", driver.findElement(By.id("documentDate")).getAttribute("value"));
-        assertEquals("ТП №1", driver.findElement(By.id("documentIssue")).getAttribute("value"));
+        assertEquals("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
 
     /*
 
