@@ -47,47 +47,53 @@ public class selenium_task_1 {
         WebElement search_text  = driver.findElement(By.xpath("//*[text()='Сумма выплаты']//..//h3[@class='kit-heading kit-heading_s']"));
         assertEquals("до 120 000 евро",search_text.getText());
 
-        driver.findElement(By.xpath(("//a[contains(text(),'Оформить онлайн')]"))).click();
-        //Далее не срабатывает никакое ожидание и никакой xpath
-        driver.findElement(By.xpath("//p[contains(text(),'Необходимый минимум для оплаты медицинской помощи за границей')]")).click();
+       // driver.findElement(By.xpath(("//b[contains(text(),'Оформить онлайн')]"))).click();
 
- /*     Wait<WebDriver> wait = new WebDriverWait(driver, 5,1000);//ожидаем появления элемента
-         WebElement sndtext = driver.findElement(By.xpath("//div[contains(@class,'circle')]//..//a[contains(text(),'Выбор полиса')]"));
-        //ждем, пока появится этот элемент (сам элемент задан строчкой выше)
-        wait.until(ExpectedConditions.visibilityOf(sndtext));
+        String problemUrl = driver.findElement(By.xpath("//b[contains(text(),'Оформить онлайн')]/..")).getAttribute("href");
+        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS); //Имплицитное ожидания
+        driver.get(problemUrl);
 
-                driver.findElement(By.xpath("//div[contains(@class,'online-card-program selected')]")).click();
+        driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')][contains(text(),'Оформить')]")).click();
+        driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')]")).click();
 
-*/
- /*     WebElement title = driver.findElement(By.xpath("//div[@class='product-image']"));
+        Wait<WebDriver> wait = new WebDriverWait(driver, 5,1000);//ожидаем появления кнопки
+        WebElement title = driver.findElement(By.xpath("//div[contains(@class,'sub-legend')][contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]"));
         wait.until(ExpectedConditions.visibilityOf(title));
 
-        driver.findElement(By.xpath("//button[@class='btn btn-primary btn-large']")).click();
-        driver.findElement(By.xpath("//p[contains(text(),'Необходимый минимум для оплаты медицинской помощи за границей')]")).click();
-*/
+        fillField(By.id("surname_vzr_ins_0"),"Иванов");
+        fillField(By.id("name_vzr_ins_0"),"Руслан");
+        fillField(By.id("birthDate_vzr_ins_0"),"23.03.2010");
+
+        fillField(By.id("person_lastName"),"Петров");
+        fillField(By.id("person_firstName"),"Михаил");
+        fillField(By.id("person_middleName"),"Александрович");
+
+        driver.findElement(By.xpath("//label[contains(text(),'Мужской')]")).click();
+
+        fillField(By.id("passportSeries"),"3411");
+        fillField(By.id("passportNumber"),"341111");
+        fillField(By.id("documentDate"),"03.10.2014");
+        fillField(By.id("documentIssue"),"ТП №1");
+
+       //Проверка полей на корректность  заполнения
+        assertEquals("Иванов", driver.findElement(By.xpath("//*[contains(@class,'form-control__container form-control_has-value form-control__focused')]//input[contains(@class,'form-control ng-touched ng-dirty ng-valid')]")).getAttribute("value"));
+        assertEquals("Руслан", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
+        assertEquals("23.03.2010", driver.findElement(By.id("birthDate_vzr_ins_0")).getAttribute("value"));
+
+        assertEquals("Петров", driver.findElement(By.id("person_lastName")).getAttribute("value"));
+        assertEquals("Михаил", driver.findElement(By.id("person_firstName")).getAttribute("value"));
+        assertEquals("Александрович", driver.findElement(By.id("person_middleName")).getAttribute("value"));
+
+        assertEquals("3411", driver.findElement(By.id("person_lastName")).getAttribute("value"));
+        assertEquals("341111", driver.findElement(By.id("passportNumber")).getAttribute("value"));
+        assertEquals("03.10.2014", driver.findElement(By.id("documentDate")).getAttribute("value"));
+        assertEquals("ТП №1", driver.findElement(By.id("documentIssue")).getAttribute("value"));
 
     /*
-        fillField(By.name("LastName"),"Иванов"); //вызываем метод заполнения поля для фамилии
-        fillField(By.name("FirstName"),"Иван");
-        fillField(By.name("MiddleName"),"Иванович");
-
-        //из выпадающего списка выбираем видимое значение "Москва"
-        new Select(driver.findElement(By.name("Region"))).selectByVisibleText("Москва");
-
-        fillField(By.name("Comment"),"AUTOTEST");
-        fillField(By.name("Email"),"1111wrongsymbols");
-
-        driver.findElement(By.xpath("//input[@class='checkbox']")).click(); //ставим чекбокс
-        driver.findElement(By.id("button-m")).click();
 
         //Проверить, что текст ошибки соответствует нужному
         assertEquals("Введите адрес электронной почты",
                 driver.findElement(By.xpath("//label[contains(@class,'control-label')][contains(text(),'Эл. почта')]/..//span")).getAttribute("innerText"));
-
-        //Проверка других полей
-        assertEquals("Иванов", driver.findElement(By.name("LastName")).getAttribute("value"));
-        assertEquals("Иван", driver.findElement(By.name("FirstName")).getAttribute("value"));
-        assertEquals("Иванович", driver.findElement(By.name("MiddleName")).getAttribute("value"));
 
 
     */
