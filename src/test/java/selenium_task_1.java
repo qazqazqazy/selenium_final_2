@@ -55,25 +55,36 @@ public class selenium_task_1 {
 
         driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')][contains(text(),'Оформить')]")).click();
         driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')]")).click();
-
-        Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления кнопки
-        WebElement title = driver.findElement(By.xpath("//div[contains(@class,'sub-legend')][contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]"));
+        Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления
+        //WebElement title = driver.findElement(By.xpath("//div[contains(@class,'sub-legend')][contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]"));
+        WebElement title = driver.findElement(By.xpath("//div[contains(@class,'col-4 step-element active')]//div[contains(text(),'2')]"));
         wait.until(ExpectedConditions.visibilityOf(title));
 
+/* попробуем посмотреть, как можно дождаться другого элемента
+        Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления
+        WebElement title = driver.findElement(By.id("person_lastName"));
+        wait.until(ExpectedConditions.visibilityOf(title));
+ */
         fillField(By.id("surname_vzr_ins_0"),"Ivanov");
         fillField(By.id("name_vzr_ins_0"),"Ruslan");
         fillField(By.id("birthDate_vzr_ins_0"),"23.03.2010");
 
+    /* это нам пока не нужно
+        WebElement fam = driver.findElement(By.id("person_lastName"));
+        wait.until(ExpectedConditions.visibilityOf(fam));
+    */
         fillField(By.id("person_lastName"),"Васильев");
         fillField(By.id("person_firstName"),"Михаил");
         fillField(By.id("person_middleName"),"Александрович");
-
-        driver.findElement(By.xpath("//label[contains(text(),'Мужской')]")).click();
+        fillField(By.id("person_birthDate"),"23.03.1986");
+        //driver.findElement(By.id("person_middleName")).sendKeys("Александрович");
 
         fillField(By.id("passportSeries"),"3411");
         fillField(By.id("passportNumber"),"341111");
         fillField(By.id("documentDate"),"03.10.2014");
         fillField(By.id("documentIssue"),"Т4444444444444");
+
+        driver.findElement(By.xpath("//label[contains(text(),'Мужской')]")).click();
 
        //Проверка полей на корректность  заполнения
         assertEquals("Ivanov", driver.findElement(By.id("surname_vzr_ins_0")).getAttribute("value"));
@@ -90,12 +101,9 @@ public class selenium_task_1 {
         assertEquals("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
 
     /*
-
         //Проверить, что текст ошибки соответствует нужному
         assertEquals("Введите адрес электронной почты",
                 driver.findElement(By.xpath("//label[contains(@class,'control-label')][contains(text(),'Эл. почта')]/..//span")).getAttribute("innerText"));
-
-
     */
     }
 
@@ -103,14 +111,13 @@ public class selenium_task_1 {
     public void fillField(By locator, String value) {
         driver.findElement(locator).clear(); //очистили найденное поле
         driver.findElement(locator).sendKeys(value); //заполнили поле значением, поданным на вход
-
-
     }
-
+/*
     @After //Данный метод выполняется после каждого теста
     public void afterTest() {
         driver.quit(); //закроем окно браузера
     }
+      */
 
 }
 
