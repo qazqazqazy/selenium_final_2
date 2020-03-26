@@ -54,10 +54,10 @@ public class selenium_task_1 {
         driver.get(problemUrl);
 
         driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')][contains(text(),'Оформить')]")).click();
-        driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')]")).click();
+        //driver.findElement(By.xpath("//*[(@class='btn btn-primary btn-large')]")).click();
         Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления
-        //WebElement title = driver.findElement(By.xpath("//div[contains(@class,'sub-legend')][contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]"));
-        WebElement title = driver.findElement(By.xpath("//div[contains(@class,'col-4 step-element active')]//div[contains(text(),'2')]"));
+        WebElement title = driver.findElement(By.xpath("//div[contains(@class,'sub-legend')][contains(text(),'Введите данные застрахованных латинскими буквами, как в загранпаспорте')]"));
+        //WebElement title = driver.findElement(By.xpath("//div[contains(@class,'col-4 step-element active')]//div[contains(text(),'2')]"));
         wait.until(ExpectedConditions.visibilityOf(title));
 
 /* попробуем посмотреть, как можно дождаться другого элемента
@@ -73,16 +73,18 @@ public class selenium_task_1 {
         WebElement fam = driver.findElement(By.id("person_lastName"));
         wait.until(ExpectedConditions.visibilityOf(fam));
     */
+        driver.findElement(By.xpath("//*[contains(text(),'Страхователь')]")).click();
         fillField(By.id("person_lastName"),"Васильев");
         fillField(By.id("person_firstName"),"Михаил");
         fillField(By.id("person_middleName"),"Александрович");
         fillField(By.id("person_birthDate"),"23.03.1986");
-        //driver.findElement(By.id("person_middleName")).sendKeys("Александрович");
 
+        driver.findElement(By.xpath("//*[contains(text(),'Страхователь')]")).click();
         fillField(By.id("passportSeries"),"3411");
         fillField(By.id("passportNumber"),"341111");
-        fillField(By.id("documentDate"),"03.10.2014");
         fillField(By.id("documentIssue"),"Т4444444444444");
+        fillField(By.id("documentDate"),"03.10.2014");
+        driver.findElement(By.xpath("//*[contains(text(),'Мобильный телефон')]")).click();
 
         driver.findElement(By.xpath("//label[contains(text(),'Мужской')]")).click();
 
@@ -95,16 +97,16 @@ public class selenium_task_1 {
         assertEquals("Михаил", driver.findElement(By.id("person_firstName")).getAttribute("value"));
         assertEquals("Александрович", driver.findElement(By.id("person_middleName")).getAttribute("value"));
 
-        assertEquals("3411", driver.findElement(By.id("person_lastName")).getAttribute("value"));
+        assertEquals("3411", driver.findElement(By.id("passportSeries")).getAttribute("value"));
         assertEquals("341111", driver.findElement(By.id("passportNumber")).getAttribute("value"));
         assertEquals("03.10.2014", driver.findElement(By.id("documentDate")).getAttribute("value"));
         assertEquals("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
 
-    /*
+       driver.findElement(By.xpath("//button[contains(text(),'Продолжить')]/.")).getAttribute("href");
+
         //Проверить, что текст ошибки соответствует нужному
-        assertEquals("Введите адрес электронной почты",
-                driver.findElement(By.xpath("//label[contains(@class,'control-label')][contains(text(),'Эл. почта')]/..//span")).getAttribute("innerText"));
-    */
+        assertEquals("Поле не заполнено.",
+                driver.findElement(By.xpath("//span[contains(@class,'invalid-validate form-control__message')]")).getAttribute("innerText"));
     }
 
     //создадим метод, который будет заполнять поле
@@ -112,12 +114,12 @@ public class selenium_task_1 {
         driver.findElement(locator).clear(); //очистили найденное поле
         driver.findElement(locator).sendKeys(value); //заполнили поле значением, поданным на вход
     }
-/*
+
     @After //Данный метод выполняется после каждого теста
     public void afterTest() {
         driver.quit(); //закроем окно браузера
     }
-      */
+
 
 }
 
