@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
 
-    @FindBy (xpath="//ul[contains(@class, 'lg-menu__list')]")
+    @FindBy (xpath="//ul[contains(@class, 'lg-menu__list')]") //здесь надо поменять
     WebElement mainMenu;
 
 
