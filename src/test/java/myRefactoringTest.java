@@ -20,11 +20,10 @@ public class myRefactoringTest extends BaseTest {
         WebElement search_text  = driver.findElement(By.xpath("//*[text()='Сумма выплаты']//..//h3[@class='kit-heading kit-heading_s']"));
         assertEquals("до 120 000 евро",search_text.getText());
 */
+        new SecondPage(driver).sendButton.click(); //Нажимаем "Оформить заявку" c SecondPage
 
-        new SecondPage(driver).sendButton.click();
-
-        new TravelPage(driver).sendButtonTwo.click();
-
+        TravelPage travelPage = new TravelPage(driver);
+        TravelPage.selectMainGroup("Минимальная");
     }
 }
 

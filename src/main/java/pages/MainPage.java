@@ -29,5 +29,6 @@ public class MainPage {
     public void selectSubMenu(String menuItem){
          mainMenu.findElement(By.xpath(".//li//a[contains(text(),'"+menuItem+"')]")).click();
 
+
         }
 }
