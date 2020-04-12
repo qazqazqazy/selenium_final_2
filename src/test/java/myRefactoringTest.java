@@ -21,10 +21,7 @@ public class myRefactoringTest extends BaseTest {
         assertEquals("до 120 000 евро",search_text.getText());
 */
 
-        new SecondPage(driver).sendButton;
-        String problemUrl = driver.findElement(By.xpath("sendButton"./)).getAttribute("href");
-        driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS); //Имплицитное ожидания
-        driver.get(problemUrl);
+        new SecondPage(driver).sendButton.click();
 
         new TravelPage(driver).sendButtonTwo.click();
 
