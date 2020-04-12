@@ -8,23 +8,25 @@ import org.openqa.selenium.support.PageFactory;
 
 public class MainPage {
 
-    @FindBy (xpath="//ul[contains(@class, 'lg-menu__list')]") //здесь надо поменять
+    @FindBy (xpath="//ul[contains(@class, 'lg-menu__list')]")
     WebElement mainMenu;
 
 
-    @FindBy (xpath="(//DIV[@class='kit-row'])[8]")
+    @FindBy (xpath="(//ul[contains(@class, 'lg-menu__sub-list')]")
     WebElement subMenu;
 
+    //конструктор
     public  MainPage (WebDriver driver) {
         PageFactory.initElements(driver,  this);
         }
 
-        public void selectMainMenu(String menuItem){
+    //выбор пункта меню
+    public void selectMainMenu(String menuItem){
         mainMenu.findElement(By.xpath(".//..//../span[contains(text(),'"+menuItem+"')]")).click();
         }
 
-
-         public void selectSubMenu(String menuItem){
+    //выбор пункта подменю
+    public void selectSubMenu(String menuItem){
          mainMenu.findElement(By.xpath(".//li//a[contains(text(),'"+menuItem+"')]")).click();
 
         }
