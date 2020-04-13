@@ -23,7 +23,7 @@ public class myRefactoringTest extends BaseTest {
         new SecondPage(driver).sendButton.click(); //Нажимаем "Оформить заявку" c SecondPage
 
         TravelPage travelPage = new TravelPage(driver);
-        TravelPage.selectMainGroup("Минимальная");
+        travelPage.selectMainGroup("Минимальная");
     }
 }
 
