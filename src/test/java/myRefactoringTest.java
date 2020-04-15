@@ -57,15 +57,23 @@ public class myRefactoringTest extends BaseTest {
 
         new FormPage(driver).phone.click();
         new FormPage(driver).card.click();
-  /*
-        FormPage.lastNameD(driver).getAttribute("value");
 
-        FormPage fp = new FormPage(driver); //новый объект
+  /*
+          assertTrue("Ivanov".equals(formPage(driver).lastnameD.getAttribute("value")));
+
+          FormPage.lastNameD(driver).getAttribute("value");
+                String problemElement = formPage.lastNameD.getText();
+
+          BaseTest baseTest = new BaseTest(driver);
+          baseTest.checkFillField("Ivanov",lastNameD.getAttribute("value"));
+*/
+
+
 
         //Проверка полей на корректность  заполнения
-        assertTrue("Ivanov".equals(fp.lastNameD(driver).getAttribute("value")));
-*/
-  /*      assertTrue("Ruslan", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
+  /*
+
+        assertTrue("Ruslan", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
         assertTrue("23.03.2010", driver.findElement(By.id("birthDate_vzr_ins_0")).getAttribute("value"));
 
         assertTrue("Васильев", driver.findElement(By.id("person_lastName")).getAttribute("value"));
