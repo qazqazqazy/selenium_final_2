@@ -13,6 +13,9 @@ import java.util.concurrent.TimeUnit;
 
 public class SecondPage {
 
+    @FindBy (xpath="//*[text()='Сумма выплаты']//..//h3[@class='kit-heading kit-heading_s']")
+    public WebElement search_text;
+
     //находим кнопку оформления онлайн
     @FindBy (xpath="//b[contains(text(),'Оформить онлайн')]")
     public WebElement sendButton;

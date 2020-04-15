@@ -42,12 +42,12 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
         driver.manage().window().maximize();
     }
-
+/*
     @AfterClass
     public static void tearDown() throws Exception {
         driver.quit();
     }
-
+*/
     protected boolean isElementPresent(By by) {
         try {
             driver.findElement(by);
