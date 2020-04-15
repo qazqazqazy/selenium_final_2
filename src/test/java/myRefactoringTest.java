@@ -35,9 +35,9 @@ public class myRefactoringTest extends BaseTest {
 */
         new TravelPage(driver).sendButtonTwo.click();//выбираем кнопку "Оформить"
 
-        FormPage formPage = new FormPage(driver);
+        FormPage formPage = new FormPage(driver); //новый объект
 
-        formPage.fillField("Фамилия /Surname", "Ivanov");
+        formPage.fillField("Фамилия /Surname", "Ivanov"); //с маленькой буквы!
         formPage.fillField("Имя / Given names", "Ruslan");
         formPage.fillField("Дата рождения/B", "23.03.2010");
 
@@ -57,11 +57,28 @@ public class myRefactoringTest extends BaseTest {
 
         new FormPage(driver).phone.click();
         new FormPage(driver).card.click();
+  /*
+        FormPage.lastNameD(driver).getAttribute("value");
+
+        FormPage fp = new FormPage(driver); //новый объект
+
+        //Проверка полей на корректность  заполнения
+        assertTrue("Ivanov".equals(fp.lastNameD(driver).getAttribute("value")));
+*/
+  /*      assertTrue("Ruslan", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
+        assertTrue("23.03.2010", driver.findElement(By.id("birthDate_vzr_ins_0")).getAttribute("value"));
+
+        assertTrue("Васильев", driver.findElement(By.id("person_lastName")).getAttribute("value"));
+        assertTrue("Михаил", driver.findElement(By.id("person_firstName")).getAttribute("value"));
+        assertTrue("Александрович", driver.findElement(By.id("person_middleName")).getAttribute("value"));
+
+        assertTrue("3411", driver.findElement(By.id("passportSeries")).getAttribute("value"));
+        assertTrue("341111", driver.findElement(By.id("passportNumber")).getAttribute("value"));
+        assertTrue("03.10.2014", driver.findElement(By.id("documentDate")).getAttribute("value"));
+        assertTrue("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
+*/
 
 
-
-
-        
         new FormPage(driver).next.click();
 
         String expected = "Поле не заполнено.";
