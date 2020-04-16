@@ -59,19 +59,19 @@ public class myRefactoringTest extends BaseTest {
         new FormPage(driver).phone.click();
         new FormPage(driver).card.click();
 
-        assertTrue("Ivanov".equals(formPage.getFillField( "Фамилия /Surname"));
-        assertTrue("Ruslan".equals(formPage.getFillField( "Имя / Given names"));
-        assertTrue("23.03.2010".equals(formPage.getFillField( "Дата рождения/B"));
+        assertTrue("Ivanov".equals(formPage.getFillField( "Фамилия /Surname")));
+        assertTrue("Ruslan".equals(formPage.getFillField( "Имя / Given names")));
+        assertTrue("23.03.2010".equals(formPage.getFillField( "Дата рождения/B")));
 
-        assertTrue("Васильев".equals(formPage.getFillField("Фамилия")) );
-        assertTrue("Михаил". equals(formPage.getFillField("Имя")) );
-        assertTrue("Александрович". equals(formPage.getFillField("Отчество")) );
-        assertTrue("23.03.1986". equals(formPage.getFillField("Дата рождения")) );
+        assertTrue("Васильев".equals(formPage.getFillField("Фамилия")));
+        assertTrue("Михаил". equals(formPage.getFillField("Имя")));
+        assertTrue("Александрович". equals(formPage.getFillField("Отчество")));
+        assertTrue("23.03.1986". equals(formPage.getFillField("Дата рождения")));
 
-        assertTrue("3411". equals(formPage.getFillField("Серия паспорта")) );
-        assertTrue("341111".equals(formPage.getFillField("Номер паспорта")) );
-        assertTrue("03.10.2014".equals(formPage.getFillField("Дата выдачи")) );
-        assertTrue("Т4444444444444". equals(formPage.getFillField("Кем выдан")) );
+        assertTrue("3411". equals(formPage.getFillField("Серия паспорта")));
+        assertTrue("341111".equals(formPage.getFillField("Номер паспорта")));
+        assertTrue("03.10.2014".equals(formPage.getFillField("Дата выдачи")));
+        assertTrue("Т4444444444444". equals(formPage.getFillField("Кем выдан")));
 
 
         /*
@@ -88,7 +88,7 @@ public class myRefactoringTest extends BaseTest {
     }
 
 
-    public void checkFillField(String value, By locator) {
+         public void checkFillField(String value, By locator) {
         assertEquals(value, driver.findElement(locator).getAttribute("value"));
 }
 
