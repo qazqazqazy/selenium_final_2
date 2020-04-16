@@ -1,11 +1,14 @@
 package pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import static org.junit.Assert.assertEquals;
 
 public class FormPage {
 
@@ -56,6 +59,7 @@ public class FormPage {
 
     @FindBy(xpath = "//button[contains(text(),'Продолжить')]/.")
     public WebElement next;
+    protected static WebDriver driver;
 
     public FormPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
@@ -106,15 +110,35 @@ public class FormPage {
             default:  throw new AssertionError("Поле '"+fieldName+"' не объявлено на странице");
         }
     }
-     protected void fillField (WebElement element, String value) {
-            element.clear();
-            element.sendKeys(value);
-            }
 
+    public String getFillField(String fieldName){
+        switch (fieldName){
+            case  "Фамилия /Surname":
+                return lastNameD.getAttribute("value");
+            case  "Имя / Given names":
+                return nameD.getAttribute("value");
+            case  "Дата рождения/B":
+                return birthDateD.getAttribute("value");
 
-/*
-    @FindBy(css = "input.checkbox")
-    public WebElement checkbox;
-
- */
+            case  "Фамилия":
+                return lastName.getAttribute("value");
+            case  "Имя":
+                return firstName.getAttribute("value");
+            case  "Отчество":
+                return middleName.getAttribute("value");
+            case  "Дата рождения":
+                return birthDate.getAttribute("value");
+            case  "Серия паспорта":
+                return passportSeriesP.getAttribute("value");
+            case  "Номер паспорта":
+                return passportNumberP.getAttribute("value");
+            case  "Кем выдан":
+                return documentIssueP.getAttribute("value");
+            case  "Дата выдачи":
+                return documentDateP.getAttribute("value");
+            case  "Мобильный телефон":
+                return phone.getAttribute("value");
+        }
+        throw new AssertionError("Поле не объявлено на странице");
+    }
 }
