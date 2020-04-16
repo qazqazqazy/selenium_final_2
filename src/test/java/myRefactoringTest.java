@@ -8,6 +8,7 @@ import pages.TravelPage;
 import java.util.concurrent.TimeUnit;
 
 import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class myRefactoringTest extends BaseTest {
 
@@ -58,34 +59,26 @@ public class myRefactoringTest extends BaseTest {
         new FormPage(driver).phone.click();
         new FormPage(driver).card.click();
 
-  /*
-          assertTrue("Ivanov".equals(formPage(driver).lastnameD.getAttribute("value")));
+        assertTrue("Ivanov".equals(formPage.getFillField( "Фамилия /Surname"));
+        assertTrue("Ruslan".equals(formPage.getFillField( "Имя / Given names"));
+        assertTrue("23.03.2010".equals(formPage.getFillField( "Дата рождения/B"));
 
+        assertTrue("Васильев".equals(formPage.getFillField("Фамилия")) );
+        assertTrue("Михаил". equals(formPage.getFillField("Имя")) );
+        assertTrue("Александрович". equals(formPage.getFillField("Отчество")) );
+        assertTrue("23.03.1986". equals(formPage.getFillField("Дата рождения")) );
+
+        assertTrue("3411". equals(formPage.getFillField("Серия паспорта")) );
+        assertTrue("341111".equals(formPage.getFillField("Номер паспорта")) );
+        assertTrue("03.10.2014".equals(formPage.getFillField("Дата выдачи")) );
+        assertTrue("Т4444444444444". equals(formPage.getFillField("Кем выдан")) );
+
+
+        /*
+          String omgwtf = new FormPage(driver).lastNameD.getText();
           FormPage.lastNameD(driver).getAttribute("value");
-                String problemElement = formPage.lastNameD.getText();
-
-          BaseTest baseTest = new BaseTest(driver);
-          baseTest.checkFillField("Ivanov",lastNameD.getAttribute("value"));
+          String problemElement = formPage.lastNameD.getText();
 */
-
-
-
-        //Проверка полей на корректность  заполнения
-  /*
-
-        assertTrue("Ruslan", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
-        assertTrue("23.03.2010", driver.findElement(By.id("birthDate_vzr_ins_0")).getAttribute("value"));
-
-        assertTrue("Васильев", driver.findElement(By.id("person_lastName")).getAttribute("value"));
-        assertTrue("Михаил", driver.findElement(By.id("person_firstName")).getAttribute("value"));
-        assertTrue("Александрович", driver.findElement(By.id("person_middleName")).getAttribute("value"));
-
-        assertTrue("3411", driver.findElement(By.id("passportSeries")).getAttribute("value"));
-        assertTrue("341111", driver.findElement(By.id("passportNumber")).getAttribute("value"));
-        assertTrue("03.10.2014", driver.findElement(By.id("documentDate")).getAttribute("value"));
-        assertTrue("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
-*/
-
 
         new FormPage(driver).next.click();
 
@@ -93,6 +86,10 @@ public class myRefactoringTest extends BaseTest {
         String actual = driver.findElement(By.xpath("//span[contains(@class,'invalid-validate form-control__message')]")).getAttribute("innerText");
         assertTrue(expected.equals(actual));
     }
+
+
+    public void checkFillField(String value, By locator) {
+        assertEquals(value, driver.findElement(locator).getAttribute("value"));
 }
 
 
