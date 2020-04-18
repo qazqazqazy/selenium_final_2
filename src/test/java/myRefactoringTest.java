@@ -26,7 +26,6 @@ public class myRefactoringTest extends BaseTest {
         String link = new SecondPage(driver).search_text.getText();
         assertTrue(text.equals(link));
 
-
         new SecondPage(driver).sendButton.click(); //Нажимаем "Оформить заявку" c SecondPage
         new TravelPage(driver).minS.click();//выбираем кнопку "Минимальная"
 /*
@@ -58,21 +57,23 @@ public class myRefactoringTest extends BaseTest {
         new FormPage(driver).phone.click();
         new FormPage(driver).card.click();
 
-  /*
-          assertTrue("Ivanov".equals(formPage(driver).lastnameD.getAttribute("value")));
+  //    новая проверка полей на корректность заполнения
+        assertTrue("Ivanov".equals(formPage.getFillField( "Фамилия /Surname")));
+        assertTrue("Ruslan".equals(formPage.getFillField( "Имя / Given names")));
+        assertTrue("23.03.2010".equals(formPage.getFillField( "Дата рождения/B")));
 
-          FormPage.lastNameD(driver).getAttribute("value");
-                String problemElement = formPage.lastNameD.getText();
+        assertTrue("Васильев".equals(formPage.getFillField("Фамилия")));
+        assertTrue("Михаил". equals(formPage.getFillField("Имя")));
+        assertTrue("Александрович". equals(formPage.getFillField("Отчество")));
+        assertTrue("23.03.1986". equals(formPage.getFillField("Дата рождения")));
 
-          BaseTest baseTest = new BaseTest(driver);
-          baseTest.checkFillField("Ivanov",lastNameD.getAttribute("value"));
-*/
+        assertTrue("3411". equals(formPage.getFillField("Серия паспорта")));
+        assertTrue("341111".equals(formPage.getFillField("Номер паспорта")));
+        assertTrue("03.10.2014".equals(formPage.getFillField("Дата выдачи")));
+        assertTrue("Т4444444444444". equals(formPage.getFillField("Кем выдан")));
 
 
-
-        //Проверка полей на корректность  заполнения
-  /*
-
+  /* старая проверка полей на корректность заполнения
         assertTrue("Ruslan", driver.findElement(By.id("name_vzr_ins_0")).getAttribute("value"));
         assertTrue("23.03.2010", driver.findElement(By.id("birthDate_vzr_ins_0")).getAttribute("value"));
 
@@ -86,12 +87,12 @@ public class myRefactoringTest extends BaseTest {
         assertTrue("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
 */
         new FormPage(driver).next.click();
-/*
+
         String expected = "Поле не заполнено.";
         String actual = driver.findElement(By.xpath("//span[contains(@class,'invalid-validate form-control__message')]")).getAttribute("innerText");
         assertTrue(expected.equals(actual));
 
- */
+
           }
 
 }

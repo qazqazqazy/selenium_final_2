@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
 
-public class FormPage {
+public class FormPage extends BasePage {
 
     @FindBy(xpath = "//div[contains(@class,'sub-legend')]")
     public WebElement title;
@@ -61,12 +61,15 @@ public class FormPage {
     public WebElement next;
     protected static WebDriver driver;
 
+    //инициализация
     public FormPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
         (new WebDriverWait(driver, 10))
                 .until(ExpectedConditions.visibilityOf(title));
     }
 
+
+    //метод для заполнения полей
     public void fillField(String fieldName, String value){
         switch (fieldName){
             case  "Фамилия /Surname":

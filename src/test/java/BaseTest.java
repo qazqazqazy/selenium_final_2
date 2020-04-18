@@ -61,6 +61,10 @@ public class BaseTest {
         driver.findElement(locator).clear();
         driver.findElement(locator).sendKeys(value);
     }
+
+    protected void checkFillField(String value, By locator) {
+        assertEquals(value, driver.findElement(locator).getAttribute("value"));
+    }
 }
 
 
