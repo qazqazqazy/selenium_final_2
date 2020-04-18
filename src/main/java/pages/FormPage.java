@@ -68,7 +68,6 @@ public class FormPage extends BasePage {
                 .until(ExpectedConditions.visibilityOf(title));
     }
 
-
     //метод для заполнения полей
     public void fillField(String fieldName, String value){
         switch (fieldName){

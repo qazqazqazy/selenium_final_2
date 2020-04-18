@@ -5,8 +5,6 @@ import pages.MainPage;
 import pages.SecondPage;
 import pages.TravelPage;
 
-import java.util.concurrent.TimeUnit;
-
 import static junit.framework.TestCase.assertTrue;
 
 public class myRefactoringTest extends BaseTest {
@@ -87,11 +85,11 @@ public class myRefactoringTest extends BaseTest {
         assertTrue("Т4444444444444", driver.findElement(By.id("documentIssue")).getAttribute("value"));
 */
         new FormPage(driver).next.click();
-
+/*
         String expected = "Поле не заполнено.";
         String actual = driver.findElement(By.xpath("//span[contains(@class,'invalid-validate form-control__message')]")).getAttribute("innerText");
         assertTrue(expected.equals(actual));
-
+*/
 
           }
 
