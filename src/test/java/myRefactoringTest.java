@@ -1,16 +1,19 @@
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import pages.FormPage;
 import pages.MainPage;
 import pages.SecondPage;
 import pages.TravelPage;
+import steps.BaseSteps;
 
 import static junit.framework.TestCase.assertTrue;
 
-public class myRefactoringTest extends BaseTest {
+public class myRefactoringTest extends BaseSteps {
 
 
     @Test
+    @Ignore
     public void newInsuranceTest() {
         driver.get(baseUrl);
         MainPage mainPage = new MainPage(driver);
@@ -18,7 +21,6 @@ public class myRefactoringTest extends BaseTest {
         mainPage.selectSubMenu("Страхование путешественников");
 
 /*      проверим, что у нас есть на странице текст "до 120 000 евро"
-        assertEquals("до 120 000 евро",search_text.getText());
 */
         String text = "до 120 000 евро";
         String link = new SecondPage(driver).search_text.getText();
