@@ -1,7 +1,7 @@
 package steps;
 
+import io.qameta.allure.Step;
 import pages.SecondPage;
-import ru.yandex.qatools.allure.annotations.Step;
 
 import static junit.framework.TestCase.assertTrue;
 

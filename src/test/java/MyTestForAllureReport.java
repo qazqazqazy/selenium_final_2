@@ -1,5 +1,5 @@
+import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
-import ru.yandex.qatools.allure.annotations.Title;
 import steps.*;
 
 import java.util.HashMap;
@@ -8,7 +8,7 @@ public class MyTestForAllureReport extends BaseSteps {
 
 
     @Test
-    @Title("Страхование")
+    @DisplayName("Страхование")
     public void testInsurance(){
         MainSteps mainSteps = new MainSteps();
         SecondSteps secondSteps = new SecondSteps();
