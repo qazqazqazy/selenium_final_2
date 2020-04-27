@@ -10,7 +10,7 @@ public class MainSteps extends BaseSteps {
         new MainPage(driver).selectMainMenu(menuItem);
     }
 
-    @Step("Выбран раздел Страхование путешественников {0}")
+    @Step("Выбран раздел {0}")
     public void stepSelectSubMenu(String menuItem){
         new MainPage(driver).selectSubMenu(menuItem);
     }

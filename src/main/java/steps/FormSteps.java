@@ -21,12 +21,12 @@ public class FormSteps extends BaseSteps {
              new FormPage(driver).str.click();
     }
 
-    @Step("Телефон")
+    @Step("Нажатие на поле 'Телефон'")
     public void stepFieldPhone (){
         new FormPage(driver).phone.click();
     }
 
-    @Step("Card")
+    @Step("Выбран пол (Мужской)")
     public void stepFieldCard () {
         new FormPage(driver).card.click();
     }
@@ -43,12 +43,12 @@ public class FormSteps extends BaseSteps {
         fields.forEach(this::checkFillField);
     }
 
-    @Step("Next")
+    @Step("Нажатие на кнопку 'Продолжить'")
     public void stepNext () {
         new FormPage(driver).next.click();
     }
 
-    @Step("Проверка сообщения об ошибке")
+    @Step("Проверка сообщения об ошибке - выводится текст ошибки 'Поле не заполнено'")
     public void stepCheckMessage(){
         String expected = "Поле не заполнено.";
         String actual = driver.findElement(By.xpath("//span[contains(@class,'invalid-validate form-control__message')]")).getAttribute("innerText");

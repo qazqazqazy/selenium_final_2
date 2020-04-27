@@ -12,7 +12,7 @@ public class SecondSteps  extends BaseSteps{
             new SecondPage(driver).sendButton.click();
     }
 
-    @Step("Проверка наличия текста")
+    @Step("Проверка наличия текста 'до 120 000 евро'")
         public void stepAssertTrueSec(){
         String text = "до 120 000 евро";
         String link = new SecondPage(driver).search_text.getText();
