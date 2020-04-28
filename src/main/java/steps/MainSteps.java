@@ -3,16 +3,16 @@ package steps;
 import io.qameta.allure.Step;
 import pages.MainPage;
 
-public class MainSteps extends BaseSteps {
+public class MainSteps  {
 
     @Step("Выбран пункт меню {0}")
         public void stepSelectMainMenu(String menuItem){
-        new MainPage(driver).selectMainMenu(menuItem);
+        new MainPage().selectMainMenu(menuItem);
     }
 
     @Step("Выбран раздел {0}")
     public void stepSelectSubMenu(String menuItem){
-        new MainPage(driver).selectSubMenu(menuItem);
+        new MainPage().selectSubMenu(menuItem);
     }
 
 }

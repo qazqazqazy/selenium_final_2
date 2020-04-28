@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import steps.BaseSteps;
 
 public class TravelPage {
 /*
@@ -22,8 +23,8 @@ public class TravelPage {
     public WebElement sendButtonTwo;
 
     //конструктор обычный
-    public  TravelPage (WebDriver driver) {
-        PageFactory.initElements(driver,  this);
+    public  TravelPage () {
+        PageFactory.initElements(BaseSteps.getDriver(), this);
         // Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления
         // wait.until(ExpectedConditions.visibilityOf(sendButtonTwo)).click();
     }

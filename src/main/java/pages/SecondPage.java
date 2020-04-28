@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import steps.BaseSteps;
 
 import java.util.concurrent.TimeUnit;
 
@@ -27,8 +28,8 @@ public class SecondPage {
 */
     public  SecondPage (WebDriver driver) {
 
-        PageFactory.initElements(driver,  this);
-        Wait<WebDriver> wait = new WebDriverWait(driver, 5,4000);//ожидаем появления
+        PageFactory.initElements(BaseSteps.getDriver(), this);
+        Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 5,4000);//ожидаем появления
         wait.until(ExpectedConditions.visibilityOf(sendButton)); //убрала отсюда .(click);
     }
 }
