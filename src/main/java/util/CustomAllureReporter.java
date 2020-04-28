@@ -1,3 +1,5 @@
+package util;
+
 import gherkin.formatter.model.Result;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -5,7 +7,7 @@ import ru.yandex.qatools.allure.Allure;
 import ru.yandex.qatools.allure.events.MakeAttachmentEvent;
 import static steps.BaseSteps.getDriver;
 
-public class AllureReporter extends ru.yandex.qatools.allure.cucumberjvm.AllureReporter {
+public class CustomAllureReporter extends ru.yandex.qatools.allure.cucumberjvm.AllureReporter {
 
 
     @Override

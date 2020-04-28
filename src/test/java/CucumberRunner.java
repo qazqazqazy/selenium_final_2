@@ -3,9 +3,9 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {"src/test/resources/"}, glue = {"@steps"},
+@CucumberOptions(features = {"src/test/resources/features/"}, glue = {"steps"},
         plugin = {
-                "util.AllureReporter",
+                "util.CustomAllureReporter",
         }
 )
 public class CucumberRunner {

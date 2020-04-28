@@ -1,7 +1,9 @@
 package steps;
-import io.qameta.allure.Step;
+
 import org.openqa.selenium.By;
 import pages.FormPage;
+import ru.yandex.qatools.allure.annotations.Step;
+
 import java.util.HashMap;
 import static junit.framework.TestCase.assertTrue;
 
