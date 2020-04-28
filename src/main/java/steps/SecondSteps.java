@@ -10,6 +10,7 @@ public class SecondSteps {
 
     @Step("Выполнено нажатие на кнопку - Оформить заявку")
         public void stepSendAppButton(){
+            new SecondPage(BaseSteps.getDriver()).closeThisAnnoyingThing.click();
             new SecondPage(BaseSteps.getDriver()).sendButton.click();
     }
 

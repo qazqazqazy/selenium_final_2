@@ -54,7 +54,6 @@ public class BaseSteps {
     }
 
 
-
     protected boolean isElementPresent(By by) {
         try {
             driver.findElement(by);

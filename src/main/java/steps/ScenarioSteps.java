@@ -12,7 +12,11 @@ public class ScenarioSteps {
     TravelSteps travelSteps = new TravelSteps();
     FormSteps formSteps = new FormSteps();
 
-    @When("^выбран пункт меню \"(.+)\"$")
+    @When("^открылась стартовая страница$")
+    public void startPage( ) {
+        mainSteps.stepURL();
+    }
+        @When("^выбран пункт меню \"(.+)\"$")
     public void selectMainMenu(String menuItem){
         mainSteps.stepSelectMainMenu(menuItem);
     }

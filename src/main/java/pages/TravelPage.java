@@ -29,12 +29,7 @@ public class TravelPage {
         // wait.until(ExpectedConditions.visibilityOf(sendButtonTwo)).click();
     }
 
- /*   //выбор варианта защиты
-    public void selectMainGroup(String menuItem){
-        mainGroup.findElement(By.xpath("//h3[contains(text(),'"+menuItem+"']")).click();
-    }
 
-  */
 
 
 }

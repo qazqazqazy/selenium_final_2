@@ -20,12 +20,11 @@ public class SecondPage {
     //находим кнопку оформления онлайн
     @FindBy (xpath="//b[contains(text(),'Оформить онлайн')]")
     public WebElement sendButton;
-/*
-    //ссылка, не нужно
-    public void selectURL (String problemItem){
-        SecondPage.findElement(By.xpath(./+"problemItem")).getAttribute("href");
-    }
-*/
+
+    //мешающий элемент
+    @FindBy (xpath="//a[contains(text(),'Закрыть предупреждение')]")
+    public WebElement closeThisAnnoyingThing;
+
     public  SecondPage (WebDriver driver) {
 
         PageFactory.initElements(BaseSteps.getDriver(), this);
