@@ -1,6 +1,5 @@
 package pages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,25 +9,26 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import steps.BaseSteps;
 
-import java.util.concurrent.TimeUnit;
-
 public class SecondPage {
 
-    @FindBy (xpath="//*[text()='Сумма выплаты']//..//h3[@class='kit-heading kit-heading_s']")
-    public WebElement search_text;
-
-    //находим кнопку оформления онлайн
-    @FindBy (xpath="//b[contains(text(),'Оформить онлайн')]")
-    public WebElement sendButton;
-
-    //мешающий элемент
-    @FindBy (xpath="//a[contains(text(),'Закрыть предупреждение')]")
-    public WebElement closeThisAnnoyingThing;
+    /* конструктор
+    public  SecondPage (WebDriver driver) {
+        PageFactory.initElements(driver,  this);
+    }
+*/
+    //МЕНЮ на второй странице (Электроника)
+    @FindBy(xpath="//div[@role='tablist']//div//a//span[contains(text(),'Электроника')]")
+    public WebElement subMenu;
 
     public  SecondPage (WebDriver driver) {
 
         PageFactory.initElements(BaseSteps.getDriver(), this);
-        Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 5,4000);//ожидаем появления
-        wait.until(ExpectedConditions.visibilityOf(sendButton)); //убрала отсюда .(click);
+        Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 30, 4000);//ожидаем появления
+        wait.until(ExpectedConditions.visibilityOf(subMenu));
+
+
     }
+
+
+
 }

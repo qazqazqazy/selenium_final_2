@@ -1,26 +1,16 @@
 package steps;
-
-
 import pages.MainPage;
+import pages.SecondPage;
 import ru.yandex.qatools.allure.annotations.Step;
 
-import static steps.BaseSteps.baseUrl;
 
 public class MainSteps  {
 
-    @Step ("Происходит переход по ссылке")
-        public void stepURL() {
-        BaseSteps.getDriver().get(baseUrl);
-    }
 
-    @Step("Выбран пункт меню {0}")
-        public void stepSelectMainMenu(String menuItem){
-        new MainPage().selectMainMenu(menuItem);
-    }
-
-    @Step("Выбран раздел {0}")
-    public void stepSelectSubMenu(String menuItem){
-        new MainPage().selectSubMenu(menuItem);
+    @Step("Выбран пункт меню Маркет")
+        public void stepSelectMainMenu() {
+        new MainPage(BaseSteps.getDriver()).mainMenuY.click();
+        //new MainPage(BaseSteps.getDriver()).mainMenuY.click();
     }
 
 }

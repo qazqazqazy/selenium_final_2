@@ -9,31 +9,19 @@ import steps.BaseSteps;
 
 public class MainPage {
 
-    @FindBy (xpath="//ul[contains(@class, 'lg-menu__list')]")
-    WebElement mainMenu;
-
-
-    @FindBy (xpath="(//ul[contains(@class, 'lg-menu__sub-list')]")
-    WebElement subMenu;
-
     //конструктор
-/*    public  MainPage (WebDriver driver) {
-        PageFactory.initElements(driver,  this);
-        }
-*/
     public MainPage(){
         PageFactory.initElements(BaseSteps.getDriver(), this);
     }
 
-    //выбор пункта меню
-    public void selectMainMenu(String menuItem){
-        mainMenu.findElement(By.xpath(".//..//../span[contains(text(),'"+menuItem+"')]")).click();
+    public  MainPage (WebDriver driver) {
+        PageFactory.initElements(driver,  this);
         }
 
-    //выбор пункта подменю
-    public void selectSubMenu(String menuItem){
-         mainMenu.findElement(By.xpath(".//li//a[contains(text(),'"+menuItem+"')]")).click();
+
+    //МЕНЮ на первой странице
+    @FindBy (xpath="//a[contains(@data-id, 'market')]")
+    public WebElement mainMenuY;
 
 
-        }
 }
