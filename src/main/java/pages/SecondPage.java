@@ -20,6 +20,15 @@ public class SecondPage {
     @FindBy(xpath="//div[@role='tablist']//div//a//span[contains(text(),'Электроника')]")
     public WebElement subMenu;
 
+    //находим раздел Телевизоры
+    @FindBy (xpath="//a[contains(text(),'Телевизоры')]")
+    public WebElement television;
+
+    //поиск кнопки "Все фильтры"
+    @FindBy (xpath="//span[contains(text(),'Все фильтры')]")
+    public WebElement sendButtonFilters;
+
+
     public  SecondPage (WebDriver driver) {
 
         PageFactory.initElements(BaseSteps.getDriver(), this);
