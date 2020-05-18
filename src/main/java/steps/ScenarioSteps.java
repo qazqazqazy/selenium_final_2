@@ -2,6 +2,7 @@ package steps;
 import cucumber.api.DataTable;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import pages.ResultsPage;
 
 
 public class ScenarioSteps {
@@ -9,7 +10,8 @@ public class ScenarioSteps {
     MainSteps mainSteps = new MainSteps();
     SecondSteps secondSteps = new SecondSteps();
     SearchSteps searchSteps = new SearchSteps();
-
+    ResultSteps resultSteps = new ResultSteps();
+    FinalSteps finalSteps = new FinalSteps();
 
     @When("^выбран пукнт меню - Маркет$")
     public void selectMainMenu() {
@@ -56,4 +58,38 @@ public class ScenarioSteps {
     public void stepResults() {
         searchSteps.stepClickButtonShowResults();
     }
+
+    @When("^Проверено количество элементов на странице$")
+    public void stepCountAll(){
+        resultSteps.stepCountResults();
+    }
+
+    @Then("^Первый элемент списка записан в переменную firstRes$")
+    public void stepWriteRes () {
+        resultSteps.stepWriteResult();
+    }
+
+    /*
+    @When("^Заполнилась строка поиска:$")
+    public void fillForm2(DataTable fields){
+        fields.asMap(String.class, String.class)
+                .forEach((field, value) -> resultSteps.stepFillField2(field, value));
+    }
+  */
+
+    @Then("^Сохраненное значение введено в строку поиска$")
+    public void stepTesting () {
+        resultSteps.stepIn();
+    }
+
+
+    @Then("^Выполнено нажатие на кнопку: Найти$")
+    public void stepFinal () {
+        resultSteps.stepFinalClick();
+    }
+    @Then("^Проверено заполнение стрки поиска$")
+    public void stepFinalTwo () {
+        finalSteps.stepCheckSearch();
+    }
 }
+
