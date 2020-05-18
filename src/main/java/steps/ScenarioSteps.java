@@ -32,12 +32,6 @@ public class ScenarioSteps {
     public void filters() {
         secondSteps.stepSelectFilters();
     }
-    /*
-    @When("^Установлена стартовая цена: 20000 рублей$")
-    public void startPriceForTV() {
-        searchSteps.stepSelectStartPrice();
-    }
-     */
 
     @When("^заполняется поле:$")
     public void fillForm(DataTable fields){
@@ -69,27 +63,20 @@ public class ScenarioSteps {
         resultSteps.stepWriteResult();
     }
 
-    /*
-    @When("^Заполнилась строка поиска:$")
-    public void fillForm2(DataTable fields){
-        fields.asMap(String.class, String.class)
-                .forEach((field, value) -> resultSteps.stepFillField2(field, value));
-    }
-  */
-
     @Then("^Сохраненное значение введено в строку поиска$")
     public void stepTesting () {
         resultSteps.stepIn();
     }
 
-
     @Then("^Выполнено нажатие на кнопку: Найти$")
     public void stepFinal () {
         resultSteps.stepFinalClick();
     }
+
     @Then("^Проверено заполнение стрки поиска$")
     public void stepFinalTwo () {
-        finalSteps.stepCheckSearch();
+        finalSteps.checkFinal();
+        System.out.println("Тест успешно завершён");
     }
 }
 

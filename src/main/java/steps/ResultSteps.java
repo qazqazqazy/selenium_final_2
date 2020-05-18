@@ -34,7 +34,7 @@ public class ResultSteps {
      */
     @Step("Первый элемент записан в переменную, значение переменное введено в строку поиска")
     public void stepIn(){
-        new WebDriverWait(BaseSteps.getDriver(), 1).until( ExpectedConditions.elementToBeClickable(new ResultsPage(BaseSteps.getDriver()).firstElement));
+        new WebDriverWait(BaseSteps.getDriver(), 10).until( ExpectedConditions.elementToBeClickable(new ResultsPage(BaseSteps.getDriver()).firstElement));
         String firstRes = new ResultsPage(BaseSteps.getDriver()).firstElement.getAttribute("innerText");
         System.out.println("Сохранено наименование элемента: " + firstRes);
         new ResultsPage(BaseSteps.getDriver()).searchFieldF.sendKeys(firstRes);

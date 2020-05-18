@@ -48,12 +48,12 @@ public class BaseSteps {
         driver.get(baseUrl);
     }
 
-    /*
+
     @After
     public static void tearDown() throws Exception {
         driver.quit();
     }
-*/
+
 
     protected boolean isElementPresent(By by) {
         try {
