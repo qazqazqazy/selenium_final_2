@@ -14,13 +14,14 @@ public class FinalSteps {
             String act = new FinalPage().getFillField(field); //Получаем значение из поля м записываем в переменную
             assertTrue(String.format("Значение поля [%s] равно [%s]. Ожидалось - [%s]", field, act, value),
                     act.equals(value));
+            
         }
 
         @Step("Проверка соответствия")
         public void checkFinal(){
         String nameOfFirstElement = new FinalPage().firstElement.getAttribute("innerText");
         new FinalSteps().checkFillField("Строка поиска",nameOfFirstElement);
-        System.out.println("nameOfFirstElement: " + nameOfFirstElement);
-        
+        //System.out.println("nameOfFirstElement: " + nameOfFirstElement);
+
         }
 }

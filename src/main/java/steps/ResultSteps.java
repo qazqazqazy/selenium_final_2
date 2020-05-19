@@ -11,8 +11,8 @@ public class ResultSteps {
 
     @Step("Проверено, что количество элементов на странице равно 48")
     public void stepCountResults() {
-        int expected = 48;
-        int count = BaseSteps.getDriver().findElements(By.xpath("//h3//a[contains(text(),'Телевизор')]")).size();
+        int expected = 13;
+        int count = BaseSteps.getDriver().findElements(By.xpath("//h3//a[contains(text(),'Наушники')]")).size();
         assertEquals(expected, count);
     }
 
@@ -20,18 +20,7 @@ public class ResultSteps {
     public void stepWriteResult(){
         String firstRes = new ResultsPage(BaseSteps.getDriver()).firstElement.getAttribute("innerText");
     }
-    /*
 
-    @Step("(На странице результатов)  Поле {0} заполняется значением {1}")
-    public void stepFillField2(String field, String value) {
-        new ResultsPage().fillField(field,value);
-    }
-
-    @Step("Заполняется строка поиска:")
-    public void stepFillFields2(HashMap<String,String> fields) {
-        fields.forEach(this::stepFillField2);
-    }
-     */
     @Step("Первый элемент записан в переменную, значение переменное введено в строку поиска")
     public void stepIn(){
         new WebDriverWait(BaseSteps.getDriver(), 10).until( ExpectedConditions.elementToBeClickable(new ResultsPage(BaseSteps.getDriver()).firstElement));

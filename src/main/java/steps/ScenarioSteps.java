@@ -23,9 +23,9 @@ public class ScenarioSteps {
         secondSteps.stepSelectSubMenu();
     }
 
-    @When("^Выбрана КАТЕГОРИЯ: ТЕЛЕВИЗОРЫ$")
-    public void tv() {
-        secondSteps.stepSelectTV();
+    @When("^Выбрана КАТЕГОРИЯ: НАУШНИКИ$")
+    public void phones() {
+        secondSteps.stepSelectEarPhones();
     }
 
     @Then("^Нажата кнопка: Все фильтры$")
@@ -39,13 +39,10 @@ public class ScenarioSteps {
                 .forEach((field, value) -> searchSteps.stepFillField(field, value));
     }
 
-    @When("^Выбран производитель LG$")
-    public void stepSelectLG() {
-        searchSteps.stepSelectLG();
-    }
-    @When("Выбран производитель Samsung$")
-    public void stepSelectSamsung() {
-        searchSteps.stepSelectSamsung();
+
+    @When("Выбран производитель Beats$")
+    public void stepSelectprodBeats() {
+        searchSteps.stepSelectBeats();
     }
 
     @Then("^Нажата кнопка: Показать подходящие$")

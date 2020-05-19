@@ -26,13 +26,10 @@ public class SearchPage extends BasePage {
     @FindBy(id = "glf-pricefrom-var")
     public WebElement startPrice;
 
-    //флажок LG
-    @FindBy(xpath = "//LABEL[@class='checkbox__label'][text()='LG']")
-    public WebElement prodLG;
 
-    //флажок Samsung
-    @FindBy(xpath = "//LABEL[@class='checkbox__label'][text()='Samsung']")
-    public WebElement prodSamsung;
+    //флажок Beats
+    @FindBy(xpath = "//LABEL[@class='checkbox__label'][text()='Beats']")
+    public WebElement prodBeats;
 
     //Показать подходящие
     @FindBy(xpath = "//A[@role='button'][2]")

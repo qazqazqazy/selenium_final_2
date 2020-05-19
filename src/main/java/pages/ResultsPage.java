@@ -21,11 +21,11 @@ public class ResultsPage extends BasePage {
 
     }
     //Найденные элементы
-    @FindBy(xpath = "//h3//a[contains(text(),'Телевизор')]")
+    @FindBy(xpath = "//h3//a[contains(text(),'Наушники')]")
     public WebElement resultString;
 
     //первый элемент
-    @FindBy(xpath = "//h3//a[contains(text(),'Телевизор')][1]")
+    @FindBy(xpath = "//h3//a[1][contains(text(),'наушники')]")
     public WebElement firstElement;
 
 

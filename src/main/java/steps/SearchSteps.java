@@ -16,15 +16,12 @@ public class SearchSteps {
         fields.forEach(this::stepFillField);
     }
 
-    @Step("Выбран производитель LG")
-    public void stepSelectLG() {
-        new SearchPage(BaseSteps.getDriver()).prodLG.click();
+    @Step("Выбран производитель Beats")
+    public void stepSelectBeats() {
+        new SearchPage(BaseSteps.getDriver()).prodBeats.click();
     }
 
-    @Step("ВВыбран производитель Samsung")
-    public void stepSelectSamsung() {
-        new SearchPage(BaseSteps.getDriver()).prodSamsung.click();
-    }
+
 
     @Step("Нажата кнопка: Показать подходящие")
     public void stepClickButtonShowResults() {

@@ -13,10 +13,16 @@ public class SecondSteps {
         new SecondPage(BaseSteps.getDriver()).subMenu.click();
     }
 
-    @Step("Выбрана категория  Телевизоры")
-    public void stepSelectTV() {
-        new SecondPage(BaseSteps.getDriver()).television.click();
+//    @Step("Выбрана категория  Телевизоры")
+//    public void stepSelectTV() {
+//        new SecondPage(BaseSteps.getDriver()).television.click();
+//    }
+
+    @Step("Выбрана категория  Наушники")
+    public void stepSelectEarPhones() {
+        new SecondPage(BaseSteps.getDriver()).earPh.click();
     }
+
 
     @Step("Выбрана кнопка Все фильтры")
     public void stepSelectFilters() {

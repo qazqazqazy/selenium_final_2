@@ -18,13 +18,12 @@ public class FinalPage {
 
     public FinalPage(WebDriver driver) {
         PageFactory.initElements(BaseSteps.getDriver(), this);
-        Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 30, 4000);//ожидаем появления
-       wait.until(ExpectedConditions.visibilityOf(searchFieldFT));
+        Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 30, 9000);//ожидаем появления
+       wait.until(ExpectedConditions.visibilityOf(firstElement));
     }
 
     //первый элемент
-    //@FindBy(xpath = "//h3//a[contains(text(),'Телевизор')][1]")
-    @FindBy(xpath = "//h3//a[contains(@title,'Телевизор')]")
+    @FindBy(xpath = "//h3//a[1][contains(text(),'наушники')]")
     public WebElement firstElement;
 
     //строка поиска

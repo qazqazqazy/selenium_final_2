@@ -11,18 +11,19 @@ import steps.BaseSteps;
 
 public class SecondPage {
 
-    /* конструктор
-    public  SecondPage (WebDriver driver) {
-        PageFactory.initElements(driver,  this);
-    }
-*/
+
     //МЕНЮ на второй странице (Электроника)
     @FindBy(xpath="//div[@role='tablist']//div//a//span[contains(text(),'Электроника')]")
     public WebElement subMenu;
 
     //находим раздел Телевизоры
-    @FindBy (xpath="//a[contains(text(),'Телевизоры')]")
-    public WebElement television;
+    //@FindBy (xpath="//a[contains(text(),'Телевизоры')]")
+    //public WebElement television;
+
+    //находим раздел Наушники
+    @FindBy (xpath="//a[contains(text(),'Наушники')]")
+    public WebElement earPh;
+
 
     //поиск кнопки "Все фильтры"
     @FindBy (xpath="//span[contains(text(),'Все фильтры')]")
@@ -30,7 +31,6 @@ public class SecondPage {
 
 
     public  SecondPage (WebDriver driver) {
-
         PageFactory.initElements(BaseSteps.getDriver(), this);
         Wait<WebDriver> wait = new WebDriverWait(BaseSteps.getDriver(), 30, 4000);//ожидаем появления
         wait.until(ExpectedConditions.visibilityOf(subMenu));
